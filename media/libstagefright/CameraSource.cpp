@@ -93,6 +93,11 @@ static int32_t getColorFormat(const char* colorFormat) {
        return OMX_COLOR_Format16bitRGB565;
     }
 
+    // for Renesas Camera Recording pix format --> 420P
+    if (!strcmp(colorFormat, CameraParameters::PIXEL_FORMAT_YUV420P)) {
+       return OMX_COLOR_FormatYUV420Planar;
+    }
+
     LOGE("Uknown color format (%s), please add it to "
          "CameraSource::getColorFormat", colorFormat);
 
